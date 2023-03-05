@@ -10,6 +10,12 @@ export const getBook = async (bookId: number) => {
 	});
 };
 
+export const getBookByTitle = async (title: string) => {
+	return Book.findOne({
+		where: { title },
+	});
+};
+
 export const saveBook = async (book: Book) => {
 	return Book.create<Book>(book);
 };
@@ -22,3 +28,13 @@ export const updateBook = async (bookId: number, book: Book) => {
 		},
 	});
 };
+
+export const deleteBook = async (bookId: number) => {
+	return Book.destroy({
+		where: {
+			bookId,
+		},
+	});
+};
+
+
